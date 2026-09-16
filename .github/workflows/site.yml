@@ -1,4 +1,4 @@
-name: Site 2026
+name: Publicar Bum
 on: [push]
 permissions:
   contents: read
@@ -9,12 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          node-version: 24
-      - run: rm -f bun.lock bun.lockb package-lock.json
-      - run: npm install
-      - run: npx vite build
+          bun-version: latest
+      
+      - run: bun x vite buld
       - uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
