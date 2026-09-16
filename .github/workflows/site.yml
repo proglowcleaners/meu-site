@@ -1,8 +1,5 @@
 name: Publicar Site
-on:
-  push:
-    branches: ["main"]
- workflow_dispatch:
+on: push
  permissions:
    contents: read
    pages: write
